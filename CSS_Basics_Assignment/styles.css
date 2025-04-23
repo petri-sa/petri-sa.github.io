@@ -43,3 +43,16 @@
 .horizontal-list li {
     margin-right: 20px;
 }
+.container-example {
+    display: flex;
+    justify-content: space-between;
+}
+.column-left {
+    width: 48%;
+    list-style-type: none;
+    padding: 0;
+}
+.column-right {
+    max-width: 100%;
+    height: auto;
+}
