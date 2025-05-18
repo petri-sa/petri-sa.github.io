@@ -23,9 +23,12 @@
     <a href="#services" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PALVELUMME</a>
     <a href="#booking" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-calendar"></i> VARAA AIKA</a>
     <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> YHTEYSTIEDOT</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
-      <i class="fa fa-search"></i>
-    </a>
+    <form class="w3-bar-item w3-right w3-hide-small" action="/search" method="get" style="padding:0;margin:0;">
+    <input class="w3-input w3-bar-item" type="text" placeholder="Haku..." name="q" style="width:120px;display:inline-block;">
+    <button class="w3-button w3-black" type="submit" style="padding:4px 8px;">
+    <i class="fa fa-search"></i>
+    </button>
+    </form>
   </div>
 
   <!-- Navbar on small screens -->
@@ -34,7 +37,9 @@
     <a href="#services" class="w3-bar-item w3-button" onclick="toggleFunction()">PALVELUMME</a>
     <a href="#booking" class="w3-bar-item w3-button" onclick="toggleFunction()">VARAA AIKA</a>
     <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">YHTEYSTIEDOT</a>    
-    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+    <form class="w3-bar-item" action="/search" method="get">
+    <input class="w3-input" type="text" placeholder="Haku..." name="q">
+    </form>
   </div>
 </div>
 
