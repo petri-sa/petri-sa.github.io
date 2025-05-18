@@ -23,8 +23,8 @@
     <a href="#services" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PALVELUMME</a>
     <a href="#booking" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-calendar"></i> VARAA AIKA</a>
     <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> YHTEYSTIEDOT</a>
-    <form class="w3-bar-item w3-right w3-hide-small" action="/search" method="get" style="padding:0;margin:0;">
-    <input class="w3-input w3-bar-item" type="text" placeholder="Haku..." name="q" style="width:120px;display:inline-block;">
+    <form class="w3-bar-item w3-right w3-hide-small" onsubmit="searchSite(event)" style="padding:0;margin:0;">
+    <input id="searchInput" class="w3-input w3-bar-item" type="text" placeholder="Haku..." name="q" style="width:120px;display:inline-block;">
     <button class="w3-button w3-black" type="submit" style="padding:4px 8px;">
     <i class="fa fa-search"></i>
     </button>
@@ -51,6 +51,8 @@
   </div>
 </div>
 
+<!--Start of main content-->
+<div id="main-content">
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
   <h3 class="w3-center">MINUSTA</h3>
@@ -226,7 +228,7 @@
     </div>
   </div>
 </div>
-
+</div>
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
   <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Siirry ylös</a>
@@ -270,6 +272,22 @@ function toggleFunction() {
     } else {
         x.className = x.className.replace(" w3-show", "");
     }
+}
+// Simple client-side search: highlights matches in #main-content
+function searchSite(event) {
+  event.preventDefault();
+  var input = document.getElementById('searchInput').value.trim().toLowerCase();
+  var content = document.getElementById('main-content');
+  if (!content) return;
+
+  // Remove previous highlights
+  content.innerHTML = content.innerHTML.replace(/<mark>(.*?)<\/mark>/g, '$1');
+
+  if (input.length < 2) return; // Don't search for very short queries
+
+  // Highlight all matches
+  var regex = new RegExp('('+input+')', 'gi');
+  content.innerHTML = content.innerHTML.replace(regex, '<mark>$1</mark>');
 }
 </script>
 </body>
